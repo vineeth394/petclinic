@@ -16,12 +16,6 @@ pipeline {
             }
         }
 
-        stage('Run Application') {
-            steps {
-                runApplication()
-            }
-        }
-
         stage('Validate App is Running') {
             steps {
                 validateApp()
