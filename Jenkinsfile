@@ -16,13 +16,6 @@ pipeline {
             }
         }
 
-        stage('Upload Artifact') {
-            steps {
-                echo 'Uploading artifact...'
-                archiveArtifacts artifacts: 'target/petclinic-0.0.1-SNAPSHOT.jar', allowEmptyArchive: true
-            }
-        }
-
         stage('Run Application') {
             steps {
                 runApplication()
