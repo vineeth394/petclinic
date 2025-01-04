@@ -10,27 +10,9 @@ pipeline {
     }
 
     stages {
-        stage('Checkout Code') {
+        stage('pipeLine1') {
             steps {
-                checkoutCode()
-            }
-        }
-
-        stage('Set up Java 17') {
-            steps {
-                setupJava()
-            }
-        }
-
-        stage('Set up Maven') {
-            steps {
-                setupMaven()
-            }
-        }
-
-        stage('Build with Maven') {
-            steps {
-                buildProject()
+                pipeLine1()
             }
         }
 
