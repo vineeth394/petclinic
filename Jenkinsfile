@@ -16,17 +16,6 @@ pipeline {
             }
         }
 
-        stage('Validate App is Running') {
-            steps {
-                validateApp()
-            }
-        }
-
-        stage('Gracefully Stop Spring Boot App') {
-            steps {
-                stopApplication()
-            }
-        }
     }
 
     post {
