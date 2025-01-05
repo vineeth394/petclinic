@@ -18,7 +18,7 @@ pipeline {
                       -Dsonar.organization=vineeth394 \
                       -Dsonar.sources=src \
                       -Dsonar.host.url=https://sonarcloud.io \
-                      -Dsonar.login=d9da154c8af16edfceb4fd3247cb613ea27c14c0
+                      -Dsonar.login=$SONAR_TOKEN
                     '''
                 }
             }
