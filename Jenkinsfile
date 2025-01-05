@@ -11,7 +11,7 @@ pipeline {
         }
         stage('SonarCloud Analysis') {
             steps {
-                withSonarQubeEnv('SONAR_TOKEN') {
+                withSonarQubeEnv('d9da154c8af16edfceb4fd3247cb613ea27c14c0') {
                     sh '''
                     sonar-scanner \
                       -Dsonar.projectKey=vineeth394_petclinic \
