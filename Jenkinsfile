@@ -16,7 +16,7 @@ pipeline {
                     sonar-scanner \
                       -Dsonar.projectKey=vineeth394_petclinic \
                       -Dsonar.organization=vineeth394 \
-                      -Dsonar.sources=src \ main \ java
+                      -Dsonar.sources=src \
                       -Dsonar.host.url=https://sonarcloud.io \
                       -Dsonar.login=d9da154c8af16edfceb4fd3247cb613ea27c14c0
                     '''
