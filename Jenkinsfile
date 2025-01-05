@@ -1,36 +1,26 @@
+@Library('my-shared-library@main') _
+
 pipeline {
-    agent any
+    agent { label 'slave' }
+
     environment {
-        SONAR_TOKEN = credentials('sonarcloud-token')
+        JAVA_HOME = '/usr/lib/jvm/java-17-openjdk-amd64'
+        MAVEN_HOME = '/usr/share/maven'
+        PATH = "${JAVA_HOME}/bin:${MAVEN_HOME}/bin:${env.PATH}"
     }
+
     stages {
-        stage('Checkout') {
+        stage('pipeLine1') {
             steps {
-                checkout scm
+                pipeLine1()
             }
         }
-        stage('SonarCloud Analysis') {
-            steps {
-                withSonarQubeEnv('sonarcloud') {
-                    sh '''
-                    sonar-scanner \
-                      -Dsonar.projectKey=vineeth394_petclinic \
-                      -Dsonar.organization=vineeth394 \
-                      -Dsonar.sources=src \
-                      -Dsonar.host.url=https://sonarcloud.io \
-                      -Dsonar.login=$SONAR_TOKEN
-                    '''
-                }
-            }
-        }
-        stage('Quality Gate') {
-            steps {
-                script {
-                    timeout(time: 1, unit: 'MINUTES') {
-                        waitForQualityGate abortPipeline: true
-                    }
-                }
-            }
+
+    }
+
+    post {
+        always {
+            cleanup()
         }
     }
 }
